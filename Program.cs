@@ -1,33 +1,23 @@
-﻿//C#: Exception Handling: Multiple catch
+﻿//C#: Throw Exception Handling
 using System;
 
-namespace MultipleCatch
+namespace Throw_Exception
 {
     class Program
     {
-        static void Main(string[] args)
+       public static void Main(string[] args)
         {
-            int x = 0;
-            int div = 0;
             try
             {
-                div = 100 / x;
-                Console.WriteLine("Not executed line");
+                throw new DivideByZeroException("Invalid Division");
             }
-            catch (DivideByZeroException de)
-            {
-                Console.WriteLine("DivideByZeroException");
-            }
-            catch (Exception)
+            catch (DivideByZeroException)
             {
                 Console.WriteLine("Exception");
             }
-            finally
-            {
-                Console.WriteLine("Finally Block");
-            }
-            Console.WriteLine($"Result is {div}");
-          
+            Console.WriteLine("LAST STATEMENT");
+        }
+            
         }
     }
-}
+
