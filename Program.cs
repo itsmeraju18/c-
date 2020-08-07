@@ -1,28 +1,38 @@
-﻿//C # : Exception handling
-using System;
+﻿using System;
 
-namespace handling
+namespace ErrorHandling
 {
-    class Program
+    class DivNumbers
+
     {
-        public static void Main(string[] args)
+        int result;
+        DivNumbers ()
         {
-            int x = 0;
-            int div = 0;
+            result = 0;
+
+        }
+        public void division(int num1, int num2)
+        {
             try
             {
-                div = 100 / x;
-
-
-                Console.WriteLine("This linein not executed");
-
+                result = num1 / num2;
             }
-            catch (DivideByZeroException)
+            catch (DivideByZeroException e)
             {
-                Console.WriteLine("Exception occured");
+                Console.WriteLine("Exception caught :{0}", e);
 
             }
-            Console.WriteLine($"Result is {div}");
+            finally
+            {
+                Console.WriteLine("Result : {0}", result);
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            DivNumbers d = new DivNumbers();
+            d.division(25, 0);
+            Console.ReadKey();
         }
     }
 }
