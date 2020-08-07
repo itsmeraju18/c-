@@ -1,23 +1,28 @@
-﻿//C#: Throw Exception Handling
+﻿//C # : Exception handling
 using System;
 
-namespace Throw_Exception
+namespace handling
 {
     class Program
     {
-       public static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            int x = 0;
+            int div = 0;
             try
             {
-                throw new DivideByZeroException("Invalid Division");
+                div = 100 / x;
+
+
+                Console.WriteLine("This linein not executed");
+
             }
             catch (DivideByZeroException)
             {
-                Console.WriteLine("Exception");
+                Console.WriteLine("Exception occured");
+
             }
-            Console.WriteLine("LAST STATEMENT");
-        }
-            
+            Console.WriteLine($"Result is {div}");
         }
     }
-
+}
